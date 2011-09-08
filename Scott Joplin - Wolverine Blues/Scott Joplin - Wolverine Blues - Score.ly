@@ -11,16 +11,13 @@
 \include "deutsch.ly"
 mbreak = {}
 
-staffViolin = \new Staff {
+leadInstrument = {
 	\time 2/2
-	\set Staff.instrumentName = "Flute"
-	\set Staff.midiInstrument = "flute"
 	\key b \major
 	\clef treble
 	\compressFullBarRests
 	\relative c''	 { 
 		\tempo "Moderato"
-		
 		\repeat volta 2 {
 		R1*14
 		r4 es4 d c
@@ -54,7 +51,20 @@ staffViolin = \new Staff {
 
 	\bar "|."
 	}
+}
 
+staffViolin = \new Staff {
+	\set Staff.instrumentName = "Flute"
+	\set Staff.midiInstrument = "flute"
+	\leadInstrument
+}
+
+staffClarinet = \new Staff {
+	\set Staff.instrumentName = "Clarinet"
+	\set Staff.midiInstrument = "clarinet"
+	\transpose es f {
+	\leadInstrument
+	}
 }
 
 staffViolinII = \new Staff {
@@ -169,7 +179,7 @@ staffViola = \new Staff {
 	\set Staff.instrumentName = "Viola"
 	\set Staff.midiInstrument = "viola"
 	\key b \major
-	\clef bass
+	\clef alto
 	\relative c' { 	
 		\repeat volta 2 {
 			g1 \f
@@ -273,8 +283,15 @@ staffCello = \new Staff {
 
 }
 
+\book {
+	\bookpart {
+		\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
 
-\score {
+}
+		\score {
 	<<
 		\staffViolin
 		\staffViolinII
@@ -282,12 +299,91 @@ staffCello = \new Staff {
 		\staffViola
 		\staffCello
 	>>
-	
+		}
+	}
+	\bookpart {
+		\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
 
-  \layout {
-  }
 }
+		\score {
+			
+		<<
+			\staffViolin
+		>>
+	}
+	}
+		\bookpart {
+		\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
 
+}
+		\score {
+			
+		<<
+			\staffClarinet
+		>>
+	}
+	}
+		\bookpart {
+			\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
+
+}
+		\score {
+		<<
+			\staffViolinII
+		>>
+	}
+	}
+		\bookpart {
+			\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
+
+}
+		\score {
+		<<
+			\staffViolinIII
+		>>
+	}
+	}
+		\bookpart {
+			\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
+
+}
+		\score {
+			
+		<<
+			\staffViola
+		>>
+	}
+	}
+		\bookpart {
+			\header {
+	title = "Wolverine Blues" 
+	subtitle = "Ragtime" 
+ 	composer = "Scott Joplin" 
+
+}
+		\score {
+		<<
+			\staffCello
+		>>
+	}
+	}
+}
+\layout {  }
 \paper {
 }
 
